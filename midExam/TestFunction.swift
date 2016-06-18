@@ -15,16 +15,6 @@ func sortArray(array1:[Int], array2:[Int]) -> [Int] {
     var array:[Int] = array1 + array2
     var newArray:[Int] = []
     
-    for i in 0 ..< array.count {
-        for j in 0 ..< array.count-1-i {
-            if array[j] > array[j+1] {
-                let temp = array[j]
-                array[j] = array[j+1]
-                array[j + 1] = temp
-            }
-        }
-    }
-    
     for i in 0...array.count-1 {
         if newArray.contains(array[i]) {
             
@@ -32,6 +22,16 @@ func sortArray(array1:[Int], array2:[Int]) -> [Int] {
             newArray.append(array[i])
         }
     }
+    
+    for i in 0 ..< newArray.count {
+        for j in 0 ..< newArray.count-1-i {
+            if newArray[j] > newArray[j+1] {
+                let temp = newArray[j]
+                newArray[j] = newArray[j+1]
+                newArray[j + 1] = temp
+            }
+        }
+    }    
     return newArray
     }
 }
