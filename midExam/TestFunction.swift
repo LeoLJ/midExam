@@ -11,9 +11,27 @@ import UIKit
 class TestFunction: NSObject {
     
 func sortArray(array1:[Int], array2:[Int]) -> [Int] {
-    let array:[Int] = array1 + array2
+
+    var array:[Int] = array1 + array2
+    var newArray:[Int] = []
     
-    return array
+    for i in 0 ..< array.count {
+        for j in 0 ..< array.count-1-i {
+            if array[j] > array[j+1] {
+                let temp = array[j]
+                array[j] = array[j+1]
+                array[j + 1] = temp
+            }
+        }
+    }
     
+    for i in 0...array.count-1 {
+        if newArray.contains(array[i]) {
+            
+        } else {
+            newArray.append(array[i])
+        }
+    }
+    return newArray
     }
 }
